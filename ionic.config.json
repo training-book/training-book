@@ -1,0 +1,7 @@
+{
+  "name": "training-book",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
