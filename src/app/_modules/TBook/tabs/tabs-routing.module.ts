@@ -16,8 +16,8 @@ const routes: Routes = [
         loadChildren: () => import('../Programs/Programs.module').then(m => m.ProgramsPageModule)
       },
       {
-        path: 'settings',
-        loadChildren: () => import('../Settings/Settings.module').then(m => m.SettingsPageModule)
+        path: 'exercises',
+        loadChildren: () => import('../Exercises/Exercises.module').then(m => m.ExercisesPageModule)
       },
       {
         path: '',

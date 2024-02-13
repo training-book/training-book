@@ -1,20 +1,25 @@
-<ion-tabs>
+<app-header [titlePage]="titlePage"></app-header>
+<ion-content>
+<ion-title>{{titlePage}}</ion-title>
+  <ion-tabs>
+  
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" href="/tabs/home">
+        <!-- <ion-icon aria-hidden="true" name="triangle"></ion-icon> -->
+        <ion-icon name="browsers"></ion-icon>
+        <ion-label>Acceuil</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="exercises" href="/tabs/exercises">
+        <ion-icon name="barbell"></ion-icon>
+        <ion-label>Exercices</ion-label>
+      </ion-tab-button>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" href="/tabs/home">
-      <ion-icon aria-hidden="true" name="triangle"></ion-icon>
-      <ion-label>Home</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="programs" href="/tabs/programs">
-      <ion-icon aria-hidden="true" name="ellipse"></ion-icon>
-      <ion-label>Programs</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="settings" href="/tabs/settings">
-      <ion-icon aria-hidden="true" name="square"></ion-icon>
-      <ion-label>Settings</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-
-</ion-tabs>
+      <ion-tab-button tab="programs" href="/tabs/programs">
+        <ion-icon name="create"></ion-icon>
+        <ion-label>Programmes</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+</ion-content>
