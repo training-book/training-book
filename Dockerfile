@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 8100
 
 # Start Ionic server
-CMD ["ionic", "serve", "--host"]
+CMD ["ionic", "serve", "--external"]
