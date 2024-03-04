@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ExercisesPage } from './Exercises.page';
 import { ExercisesPageRoutingModule } from './Exercises-routing.module';
+import { MuscleGroupComponent } from 'src/app/_components/muscle-group/muscle-group.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { ExercisesPageRoutingModule } from './Exercises-routing.module';
     FormsModule,
     ExercisesPageRoutingModule
   ],
-  declarations: [ExercisesPage]
+  declarations: [ExercisesPage, MuscleGroupComponent]
 })
 export class ExercisesPageModule {}
