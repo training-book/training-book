@@ -10,9 +10,12 @@ export class TokenService {
 
   saveToken(token:string){
     sessionStorage.setItem('token', JSON.stringify(token))
-    this.router.navigateByUrl('tabs').then(()=> {
-      window.location.reload()
-    })
+    this.router.navigateByUrl('tabs')
+  }
+
+  removeToken(){
+    sessionStorage.removeItem('token');
+    this.router.navigateByUrl('login')
   }
 
   isLogged():boolean{

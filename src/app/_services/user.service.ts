@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, window } from 'rxjs';
 import { IUser } from '../_interface/user.interface';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
   private AuthenticatedUser:BehaviorSubject<boolean>
   private AuthenticatedUser$:Observable<boolean>
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private tokenService: TokenService) {
     this.apiUrl = environment.apiUrl;
     this.AuthenticatedUser = new BehaviorSubject<boolean>(false); 
     this.AuthenticatedUser$ = this.AuthenticatedUser.asObservable()
@@ -22,6 +23,11 @@ export class UserService {
   login(credentials: {mail:string, pwd:string}):Observable<{token:string,user:IUser}> {
     return this.http
       .post<{token:string, user:IUser}>(`${this.apiUrl}/api/users/authenticate`, credentials );
+  }
+
+  logout():void{
+    localStorage.removeItem('user');
+    this.tokenService.removeToken();
   }
 
   checkApi(){
