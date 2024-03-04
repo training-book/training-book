@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TokenService } from './_services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private tokenService: TokenService, router:Router) {
+    const token = this.tokenService.isLogged();
+
+    if(token){
+      router.navigateByUrl('tabs');
+    }else{
+      router.navigateByUrl('login');
+
+    }
+  }
 }

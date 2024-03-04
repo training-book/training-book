@@ -1,0 +1,19 @@
+{
+    "name": "Ionic Development",
+    "dockerFile": "Dockerfile",
+    "appPort": [8100, 35729],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    // "extensions": [
+    //     "dbaeumer.vscode-eslint",
+    //     "angular.ng-template",
+    //     "ms-vscode.vscode-typescript-tslint-plugin",
+    //     "editorconfig.editorconfig",
+    //     "esbenp.prettier-vscode"
+    // ],
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind"
+    ],
+    "remoteUser": "node"
+}
