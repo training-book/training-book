@@ -1,0 +1,34 @@
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    // margin-top: 40px; /* Adjust this value as needed */
+    // margin-bottom: 40px; /* Provides space before the form */
+    // background-color: white;
+    height: 160px;
+    width:160px;
+    // -webkit-mask: url(logo.svg) no-repeat center;
+    // mask: url('/../../../assets/tb-logo.svg') no-repeat center;
+  }
+  img{
+    max-width: 75%;
+  }
+  /* This will ensure the form and logo container are centered */
+  ion-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  ion-item {
+    margin-bottom: 20px; /* Space between form items */
+  }
+  .img-responsive{
+    // background-color: red;
+    // -webkit-mask: url(logo.svg) no-repeat center;
+    // mask: url(logo.svg) no-repeat center;
+  }

@@ -14,7 +14,7 @@ import { TabsPageRoutingModule } from './_modules/TBook/tabs/tabs-routing.module
 @NgModule({
   declarations: [AppComponent, MuscleGroupComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, TabsPageRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

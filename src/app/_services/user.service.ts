@@ -4,6 +4,7 @@ import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpClient } from
 import { BehaviorSubject, Observable, Subject, window } from 'rxjs';
 import { IUser } from '../_interface/user.interface';
 import { TokenService } from './token.service';
+import { ISignupCredentials } from '../_interface/SignupCredentials.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class UserService {
   login(credentials: {mail:string, pwd:string}):Observable<{token:string,user:IUser}> {
     return this.http
       .post<{token:string, user:IUser}>(`${this.apiUrl}/api/users/authenticate`, credentials );
+  }
+
+  signup(sgnupCredentials:ISignupCredentials){
+    return this.http
+    .post(`${this.apiUrl}/api/users/signup`, sgnupCredentials );
   }
 
   logout():void{

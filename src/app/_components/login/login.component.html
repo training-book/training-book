@@ -1,0 +1,23 @@
+<ion-content class="ion-padding">
+  <div class="logo-container">
+    <img class="img-responsive" src="/../../../assets/tb-logo.svg" alt="Training Book">
+  </div>
+
+  <form>
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Adresse e-mail</ion-label>
+        <ion-input required type="email" name="mail" formControlName="mail"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Mot de passe</ion-label>
+        <ion-input required type="password" name="password" formControlName="pwd"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+      <ion-button  [disabled]="!loginForm.valid" (click)="login()" expand="block" type="submit" class="ion-no-margin">Connexion</ion-button>
+    </div>
+  </form>
+  <p (click)="createAcount()">Créer un compte</p>
+</ion-content>
