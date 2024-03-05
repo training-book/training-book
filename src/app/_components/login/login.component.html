@@ -19,5 +19,6 @@
       <ion-button  [disabled]="!loginForm.valid" (click)="login()" expand="block" type="submit" class="ion-no-margin">Connexion</ion-button>
     </div>
   </form>
+  <p *ngIf="errorLogin"></p>
   <p (click)="createAcount()">Créer un compte</p>
 </ion-content>
