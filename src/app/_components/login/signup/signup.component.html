@@ -28,11 +28,11 @@
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Date de naissance</ion-label>
-        <ion-input required type="date" name="mail" formControlName="mail"></ion-input>
+        <ion-input required type="date" name="birthday" formControlName="birthday"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Sexe</ion-label>
-        <ion-select formControlName="sex">
+        <ion-select (ionChange)="sexClick()" formControlName="sex">
           <ion-select-option value="H">Homme</ion-select-option>
           <ion-select-option value="F">Femme</ion-select-option>
         </ion-select>
