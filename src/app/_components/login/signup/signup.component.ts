@@ -43,8 +43,15 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       const signupCredentials = this.signupForm.value as ISignupCredentials;
       this.userService.signup(signupCredentials).subscribe({
-        next: (res) => {
+        next: (res:any) => {
+          const succesMessage = res.message
           if (res) {
+            console.log(res)
+            this.toastMessageService.presentToast(
+              'bottom',
+              succesMessage,
+              'success'
+            )
             this.modalControl.dismiss({
               userAction: "signup"
             })
@@ -62,10 +69,6 @@ export class SignupComponent implements OnInit {
       }
       );
     }
-  }
-
-  sexClick(){
-    console.log(this.signupForm)
   }
 
   closeModal() {
