@@ -21,7 +21,7 @@ export class UserService {
     this.AuthenticatedUser$ = this.AuthenticatedUser.asObservable()
   }
 
-  login(credentials: {mail:string, pwd:string}):Observable<{token:string,user:IUser}> {
+  login(credentials: {mail:string, password:string}):Observable<{token:string,user:IUser}> {
     return this.http
       .post<{token:string, user:IUser}>(`${this.apiUrl}/api/users/authenticate`, credentials );
   }

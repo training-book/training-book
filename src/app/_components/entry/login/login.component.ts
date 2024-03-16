@@ -7,38 +7,50 @@ import { SignupComponent } from './signup/signup.component';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
 import { NgIf } from '@angular/common';
+import Validation from 'src/app/_helpers/password.validation';
+
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
-    standalone: true,
-    imports: [
-        IonicModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgIf,
-    ],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
+  standalone: true,
+  imports: [
+    IonicModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgIf,
+  ],
 })
-export class LoginComponent  implements OnInit {
+export class LoginComponent implements OnInit {
 
-  errorLogin:boolean = false;
-  errorLoginMessage:string = "";
-  loginForm = new FormGroup({
-    mail: new FormControl<string>('', [Validators.required, Validators.email]),
-    pwd: new FormControl<string>('', [Validators.required, Validators.minLength(3)])
-  });
+  errorLogin: boolean = false;
+  errorLoginMessage: string = "";
+  loginForm = new FormGroup(
+    {
+      mail: new FormControl<string>('', [
+        Validators.required, 
+        Validators.email
+      ]),
+      password: new FormControl<string>('', [
+        Validators.required, 
+        Validators.minLength(8), 
+        Validators.maxLength(32),
+        Validators.pattern(Validation.upperLowerSymbolNumberRegex)
+      ])
+    }
+  );
   constructor(
-              private userService: UserService, 
-              private tokenService: TokenService,    
-              private modalControl: ModalController,
-              private toastMessageService: ToastMessageService
-    ) {}
+    private userService: UserService,
+    private tokenService: TokenService,
+    private modalControl: ModalController,
+    private toastMessageService: ToastMessageService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  login(){
+  login() {
 
     const loginCredentials = this.loginForm.value as ILoginCredentials;
     this.userService.login(loginCredentials).subscribe({
@@ -60,9 +72,9 @@ export class LoginComponent  implements OnInit {
     })
   }
 
-  async createAcount(){
+  async createAcount() {
     const singupModal = await this.modalControl.create({
-      component : SignupComponent
+      component: SignupComponent
     })
 
     await singupModal.present()

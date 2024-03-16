@@ -6,18 +6,19 @@ import { UserService } from 'src/app/_services/user.service';
 import { MaskitoOptions, MaskitoElementPredicate } from '@maskito/core';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
 import { MaskitoDirective } from '@maskito/angular';
+import Validation from 'src/app/_helpers/password.validation';
 
 @Component({
-    selector: 'app-signup',
-    templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.scss'],
-    standalone: true,
-    imports: [
-        IonicModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MaskitoDirective,
-    ],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
+  standalone: true,
+  imports: [
+    IonicModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaskitoDirective,
+  ],
 })
 export class SignupComponent implements OnInit {
   readonly nameMask: MaskitoOptions = {
@@ -30,15 +31,37 @@ export class SignupComponent implements OnInit {
 
   readonly maskPredicate: MaskitoElementPredicate = async (el) => (el as HTMLIonInputElement).getInputElement();
 
-  signupForm = new FormGroup({
-    userName: new FormControl<string>('', [Validators.required, Validators.minLength(3)]),
-    sex: new FormControl<string>('', [Validators.required]),
-    birthday: new FormControl<string>('', Validators.required),
-    firstName: new FormControl<string>('', [Validators.required]),
-    lastName: new FormControl<string>('', [Validators.required]),
-    mail: new FormControl<string>('', [Validators.required, Validators.email]),
-    pwd: new FormControl<string>('', [Validators.required, Validators.minLength(3)])
-  });
+  signupForm = new FormGroup(
+    {
+      userName: new FormControl<string>('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      sex: new FormControl<string>('', [Validators.required]),
+      birthday: new FormControl<string>('', Validators.required),
+      firstName: new FormControl<string>('', [Validators.required]),
+      lastName: new FormControl<string>('', [Validators.required]),
+      mail: new FormControl<string>('', [
+        Validators.required,
+        Validators.email
+      ]),
+      password: new FormControl<string>('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(32),
+        Validators.pattern(Validation.upperLowerSymbolNumberRegex)
+      ]),
+      confirmPassword: new FormControl<string>('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(32),
+        Validators.pattern(Validation.upperLowerSymbolNumberRegex)
+      ])
+    },
+    {
+      validators: Validation.passwordMatch('password', 'confirmPassword')
+    }
+  );
   constructor(
     private modalControl: ModalController,
     private userService: UserService,
@@ -51,7 +74,7 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       const signupCredentials = this.signupForm.value as ISignupCredentials;
       this.userService.signup(signupCredentials).subscribe({
-        next: (res:any) => {
+        next: (res: any) => {
           const succesMessage = res.message
           if (res) {
             console.log(res)
