@@ -23,12 +23,12 @@ export class UserService {
 
   login(credentials: {mail:string, password:string}):Observable<{token:string,user:IUser}> {
     return this.http
-      .post<{token:string, user:IUser}>(`${this.apiUrl}/api/users/authenticate`, credentials );
+      .post<{token:string, user:IUser}>(`${this.apiUrl}/auth/authenticate`, credentials );
   }
 
   signup(sgnupCredentials:ISignupCredentials){
     return this.http
-    .post(`${this.apiUrl}/api/users/signup`, sgnupCredentials );
+    .post(`${this.apiUrl}/auth/signup`, sgnupCredentials );
   }
 
   logout():void{

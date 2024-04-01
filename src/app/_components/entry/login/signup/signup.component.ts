@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalController, IonicModule } from '@ionic/angular';
 import { ISignupCredentials } from 'src/app/_interface/SignupCredentials.interface';
-import { UserService } from 'src/app/_services/user.service';
+import { UserService } from 'src/app/_services/auth.service';
 import { MaskitoOptions, MaskitoElementPredicate } from '@maskito/core';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
 import { MaskitoDirective } from '@maskito/angular';

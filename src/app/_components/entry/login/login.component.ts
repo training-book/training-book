@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, IonicModule } from '@ionic/angular';
 import { ILoginCredentials } from 'src/app/_interface/LoginCredentials.interface';
 import { TokenService } from 'src/app/_services/token.service';
-import { UserService } from 'src/app/_services/user.service';
+import { UserService } from 'src/app/_services/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
