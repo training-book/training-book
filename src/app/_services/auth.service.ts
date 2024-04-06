@@ -26,9 +26,9 @@ export class UserService {
       .post<{token:string, user:IUser}>(`${this.apiUrl}/auth/authenticate`, credentials );
   }
 
-  signup(sgnupCredentials:ISignupCredentials){
+  signup(signupCredentials:ISignupCredentials){
     return this.http
-    .post(`${this.apiUrl}/auth/signup`, sgnupCredentials );
+    .post(`${this.apiUrl}/auth/signup`, signupCredentials );
   }
 
   logout():void{

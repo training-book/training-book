@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
       ])
     }
   );
+  showPassword: boolean = false;
+
+
   constructor(
     private userService: UserService,
     private tokenService: TokenService,
@@ -50,6 +53,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  
   login() {
 
     const loginCredentials = this.loginForm.value as ILoginCredentials;
