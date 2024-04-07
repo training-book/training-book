@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject, window } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, window }  from 'rxjs';
 import { IUser } from '../_interface/user.interface';
 import { TokenService } from './token.service';
 import { ISignupCredentials } from '../_interface/SignupCredentials.interface';
@@ -9,7 +9,7 @@ import { ISignupCredentials } from '../_interface/SignupCredentials.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AuthService {
 
   private apiUrl: string;
   private AuthenticatedUser:BehaviorSubject<boolean>

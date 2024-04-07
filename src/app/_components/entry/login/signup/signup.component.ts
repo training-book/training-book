@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalController, IonicModule } from '@ionic/angular';
 import { ISignupCredentials } from 'src/app/_interface/SignupCredentials.interface';
-import { UserService } from 'src/app/_services/auth.service';
+import { AuthService } from 'src/app/_services/auth.service';
 import { MaskitoOptions, MaskitoElementPredicate } from '@maskito/core';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
 import { MaskitoDirective } from '@maskito/angular';
@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit {
   );
   constructor(
     private modalControl: ModalController,
-    private userService: UserService,
+    private authService: AuthService,
     private toastMessageService: ToastMessageService
   ) { }
 
@@ -73,7 +73,7 @@ export class SignupComponent implements OnInit {
   signup() {
     if (this.signupForm.valid) {
       const signupCredentials = this.signupForm.value as ISignupCredentials;
-      this.userService.signup(signupCredentials).subscribe({
+      this.authService.signup(signupCredentials).subscribe({
         next: (res: any) => {
           const succesMessage = res.message
           if (res) {

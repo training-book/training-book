@@ -6,7 +6,8 @@ import { AppComponent } from './app/app.component';
 import { AppRoutes } from './app/app.routes';
 
 import { environment } from './environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './app/_helpers/interceptor';
 
 if (environment.production) {
   enableProdMode();
@@ -14,7 +15,8 @@ if (environment.production) {
 
 const providers = [
   provideRouter(AppRoutes, withPreloading(PreloadAllModules)),
-  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+  { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi : true},
   importProvidersFrom(
     IonicModule.forRoot({}),
     HttpClientModule,

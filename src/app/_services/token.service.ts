@@ -9,7 +9,7 @@ export class TokenService {
   constructor(private router: Router) { }
 
   saveToken(token:string){
-    sessionStorage.setItem('token', JSON.stringify(token))
+    sessionStorage.setItem('token', token)
     this.router.navigateByUrl('tabs')
   }
 
@@ -21,5 +21,10 @@ export class TokenService {
   isLogged():boolean{
     const token = sessionStorage.getItem('token');
     return !! token;
+  }
+
+  getToken(){
+    const token =sessionStorage.getItem('token');
+    return token;
   }
 }

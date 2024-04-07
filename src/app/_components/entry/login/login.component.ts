@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, IonicModule } from '@ionic/angular';
 import { ILoginCredentials } from 'src/app/_interface/LoginCredentials.interface';
 import { TokenService } from 'src/app/_services/token.service';
-import { UserService } from 'src/app/_services/auth.service';
+import { AuthService } from 'src/app/_services/auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService,
+    private authService: AuthService,
     private tokenService: TokenService,
     private modalControl: ModalController,
     private toastMessageService: ToastMessageService
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   login() {
 
     const loginCredentials = this.loginForm.value as ILoginCredentials;
-    this.userService.login(loginCredentials).subscribe({
+    this.authService.login(loginCredentials).subscribe({
       next: (response) => {
         this.errorLogin = false;
         localStorage.setItem('user', JSON.stringify(response.user))
