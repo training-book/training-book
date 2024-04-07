@@ -8,7 +8,7 @@
   <ion-title>Inscription</ion-title>
 </ion-toolbar>
 <ion-content class="ion-padding">
-  <form [formGroup]="signupForm">
+  <form [formGroup]="signupForm" (ngSubmit)="signup()">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
         <ion-label position="stacked">Prénom</ion-label>
@@ -67,7 +67,7 @@
       </ion-item>
     </ion-list>
     <div class="ion-padding">
-      <ion-button [disabled]="!signupForm.valid" (click)="signup()" expand="block" type="submit"
+      <ion-button [disabled]="!signupForm.valid" expand="block" type="submit"
         class="ion-no-margin">Créer mon compte</ion-button>
     </div>
   </form>

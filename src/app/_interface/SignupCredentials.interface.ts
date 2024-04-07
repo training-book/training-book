@@ -1,7 +1,7 @@
 export interface ISignupCredentials {
     mail:string,
     userName:string,
-    pwd:string,
+    password:string,
     sex:string,
     birthday:string,
     firstName:string,

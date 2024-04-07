@@ -81,7 +81,8 @@ export class SignupComponent implements OnInit {
 
   signup() {
     if (this.signupForm.valid) {
-      const signupCredentials = this.signupForm.value as ISignupCredentials;
+      const {confirmPassword, ...destructuringSignupForm} = this.signupForm.value;
+      const signupCredentials = destructuringSignupForm as ISignupCredentials;
       this.authService.signup(signupCredentials).subscribe({
         next: (res: any) => {
           const succesMessage = res.message
