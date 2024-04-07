@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { ModalController, IonicModule } from '@ionic/angular';
 import { ISignupCredentials } from 'src/app/_interface/SignupCredentials.interface';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -7,6 +7,7 @@ import { MaskitoOptions, MaskitoElementPredicate } from '@maskito/core';
 import { ToastMessageService } from 'src/app/_services/toast-message.service';
 import { MaskitoDirective } from '@maskito/angular';
 import Validation from 'src/app/_helpers/password.validation';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -18,6 +19,7 @@ import Validation from 'src/app/_helpers/password.validation';
     FormsModule,
     ReactiveFormsModule,
     MaskitoDirective,
+    NgIf
   ],
 })
 export class SignupComponent implements OnInit {
@@ -31,6 +33,8 @@ export class SignupComponent implements OnInit {
 
   readonly maskPredicate: MaskitoElementPredicate = async (el) => (el as HTMLIonInputElement).getInputElement();
 
+  showPassword:boolean = false;
+  showConfirmPassword:boolean = false;
   signupForm = new FormGroup(
     {
       userName: new FormControl<string>('', [
@@ -69,6 +73,11 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() { }
+
+  get formControls(): { [key: string]: AbstractControl } {
+    return this.signupForm.controls;
+  }
+
 
   signup() {
     if (this.signupForm.valid) {

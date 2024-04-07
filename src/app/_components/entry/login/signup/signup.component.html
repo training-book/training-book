@@ -12,38 +12,58 @@
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
         <ion-label position="stacked">Prénom</ion-label>
-        <ion-input [maskito]="nameMask" required type="text" name="firstName" formControlName="firstName"></ion-input>
+        <ion-input aria-label="firstName" [maskito]="nameMask" required type="text" name="firstName" formControlName="firstName"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Nom</ion-label>
-        <ion-input [maskito]="nameMask" required type="text" name="lastName" formControlName="lastName"></ion-input>
+        <ion-input aria-label="lastName" [maskito]="nameMask" required type="text" name="lastName" formControlName="lastName"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Pseudo</ion-label>
-        <ion-input [maskito]="userNameMask" required type="text" name="userName" formControlName="userName"></ion-input>
+        <ion-input aria-label="userName" [maskito]="userNameMask" required type="text" name="userName" formControlName="userName"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Adresse e-mail</ion-label>
-        <ion-input required type="email" name="mail" formControlName="mail"></ion-input>
+        <ion-input aria-label="mail" required type="email" name="mail" formControlName="mail"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Date de naissance</ion-label>
-        <ion-input required type="date" name="birthday" formControlName="birthday"></ion-input>
+        <ion-input aria-label="birthday" required type="date" name="birthday" formControlName="birthday"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Sexe</ion-label>
-        <ion-select formControlName="sex">
+        <ion-select aria-label="sex" formControlName="sex">
           <ion-select-option value="H">Homme</ion-select-option>
           <ion-select-option value="F">Femme</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Mot de passe</ion-label>
-        <ion-input required type="password" name="password" formControlName="password"></ion-input>
+        <ion-input aria-label="password" required type="{{ showPassword ? 'text' : 'password' }}" name="password" formControlName="password"></ion-input>
+        <ion-icon name="{{ showPassword ? 'eye-off' : 'eye' }}" slot="end" (click)="showPassword = !showPassword"></ion-icon>
+        <div class="error-message" *ngIf="formControls['password'].errors?.['minlength']">
+          Veuillez entrer un mot de passe de minimum 8 charactères.
+        </div>
+        <!-- <div class="error-message" *ngIf="formControls['password'].errors?.['required']">
+          Ce champs est requis.
+        </div> -->
+        <div class="error-message" *ngIf="formControls['password'].errors?.['pattern']">
+          Votre mot de passe doit contenir au moins un caractère spécial, une lettre majuscule et une lettre minuscule.
+        </div>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Confirmer le mot de passe</ion-label>
-        <ion-input required type="password" name="password" formControlName="confirmPassword"></ion-input>
+        <ion-input aria-label="confirmPassword" required type="{{ showConfirmPassword ? 'text' : 'password' }}" name="password" formControlName="confirmPassword"></ion-input>
+        <ion-icon name="{{ showConfirmPassword ? 'eye-off' : 'eye' }}" slot="end" (click)="showConfirmPassword = !showConfirmPassword"></ion-icon>
+        <div class="error-message" *ngIf="formControls['confirmPassword'].errors?.['minlength']">
+          Veuillez entrer un mot de passe de minimum 8 charactères.
+        </div>
+        <!-- <div class="error-message" *ngIf="formControls['confirmPassword'].errors?.['required']">
+          Ce champs est requis.
+        </div> -->
+        <div class="error-message" *ngIf="formControls['confirmPassword'].errors?.['pattern']">
+          Votre mot de passe doit contenir au moins un caractère spécial, une lettre majuscule et une lettre minuscule.
+        </div>
       </ion-item>
     </ion-list>
     <div class="ion-padding">
