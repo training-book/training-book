@@ -1,4 +1,4 @@
 export interface ILoginCredentials {
-    mail:string,
+    email:string,
     password:string
 }

@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
       birthday: new FormControl<string>('', Validators.required),
       firstName: new FormControl<string>('', [Validators.required]),
       lastName: new FormControl<string>('', [Validators.required]),
-      mail: new FormControl<string>('', [
+      email: new FormControl<string>('', [
         Validators.required,
         Validators.email
       ]),

@@ -1,0 +1,29 @@
+{
+    "exploit": {
+        "dashboard-module": {
+            "title": "Dashboard"
+        }
+    },
+    "entry": {
+        "signup": "sign up",
+        "login": "log in"
+    },
+    "errorCodes": {
+        "300": "Invalid email addresses."
+    },
+    "successCodes": {
+        "600": "Thank you for creating an account {userName}! Check your mailbox to finalize your registration!"
+    },
+    "globalActions": {
+        "ok": "OK",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "save": "Save",
+        "add": "Add",
+        "next": "Next",
+        "previous": "Previous",
+        "confirm": "Confirm",
+        "search": "Search"
+    }
+}

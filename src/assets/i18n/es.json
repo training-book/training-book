@@ -1,0 +1,29 @@
+{
+    "exploit": {
+        "dashboard-module": {
+            "title": "Tablero"
+        }
+    },
+    "entry": {
+        "signup": "Registrarse",
+        "login": "Iniciar sesión"
+    },
+    "errorCodes": {
+        "300": "Direcciones de correo electrónico inválidas."
+    },
+    "successCodes": {
+        "600": "Gracias por crear una cuenta {userName}! Consulta tu buzón de correo para finalizar tu registro!"
+    },
+    "globalActions": {
+        "ok": "OK",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "save": "Guardar",
+        "add": "Añadir",
+        "next": "Siguiente",
+        "previous": "Anterior",
+        "confirm": "Confirmar",
+        "search": "Buscar"
+    }
+}

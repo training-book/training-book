@@ -1,13 +1,13 @@
 <ion-content class="ion-padding">
   <div class="logo-container">
-    <img class="img-responsive" src="/../../../assets/tb-logo.svg" alt="Training Book">
+    <img class="img-responsive" src="/../../../assets/tb-logo.svg" alt="Training Book" style="filter:invert(00%) sepia(100%) saturate(1000%) hue-rotate(87deg) brightness(0%) contrast(119%)">
   </div>
 
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
-        <ion-label position="stacked">Adresse e-mail</ion-label>
-        <ion-input aria-label="mail" required type="email" name="mail" formControlName="mail"></ion-input>
+        <ion-label position="stacked">Adresse email</ion-label>
+        <ion-input aria-label="email" required type="email" name="email" formControlName="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Mot de passe</ion-label>

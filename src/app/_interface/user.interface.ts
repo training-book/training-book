@@ -1,6 +1,6 @@
 export interface IUser {
     idUser: number,
-    mail:string,
+    email:string,
     userName:string,
     sex:string,
     birhtday:Date,

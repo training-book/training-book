@@ -1,0 +1,86 @@
+{
+    "exploit": {
+        "dashboard-module": {
+            "title": "Tableau de bord"
+        }
+    },
+    "entry": {
+        "signup": "S'inscrire",
+        "login": "Se connecter"
+    },
+    "errorCodes": {
+        "300": "Addresses email invalide."
+    },
+    "successCodes": {
+        "600": "Merci d'avoir créer un compte {userName} ! Consulte ta boite email pour finaliser ton inscription !"
+    },
+    "titles": {
+        "restBetweenSets" : "Repos entre les séries",
+        "restBetweenExercices":"Repos entre les exercices"
+    },
+    "actions" : {
+        "global": {
+            "titles":{
+                "stop" : ""
+            },
+            "buttons": {
+                "ok": "OK",
+                "cancel": "Annuler",
+                "delete": "Supprimer",
+                "edit": "Modifier",
+                "save": "Sauvegarder",
+                "add": "Ajouter",
+                "next": "Suivant",
+                "previous": "Précédent",
+                "confirm": "Confirmer",
+                "search": "Rechercher",
+                "yes": "Oui",
+                "no":"Non",
+                "stop":"Arrêter",
+                "select":"Sélectionner",
+                "start":"Commencer"
+            }
+        }, 
+        "specific" : {
+            "titles":{
+                "degressive" : "Ajouter une dégréssive",
+                "superset": "Ajouter un superset",
+                "import" : "Ajouter une photo/vidéo",
+                "importVideo" : "Vidéo",
+                "importPicture" : "Photo"
+            },
+            "buttons":{
+                "degressive":"Dégressive",
+                "superset":"Superset"
+            }
+        },
+        "modules" : {
+            "training" : {
+                "createProgram": "Créer un nouveau programme",
+                "createTraining":"Créer un entraînement",
+                "addExercise": "Ajouter un exercice au programme",
+                "removeExercise": "Retirer un exercice du programme"
+            },
+            "session" : {
+                "titles": {
+                    "stopSession" : "Arrêter la séance",
+                    "selectProgram": "Sélectionner un programme",
+                    "saveSession": "Sauvegarder la session",
+                    "startSession":"Démarer la séance {sessionSelected} ?"
+                },
+                "buttons": {
+
+                }
+            },
+            "exercices": {
+                "titles":{
+
+                },
+                "buttons":{
+                    "viewExercises": "Voir les exercices"
+                }
+            }
+
+        }
+    }
+}

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   errorLoginMessage: string = "";
   loginForm = new FormGroup(
     {
-      mail: new FormControl<string>('', [
+      email: new FormControl<string>('', [
         Validators.required, 
         Validators.email
       ]),
@@ -59,8 +59,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(loginCredentials).subscribe({
       next: (response) => {
         this.errorLogin = false;
-        localStorage.setItem('user', JSON.stringify(response.user))
-        this.tokenService.saveToken(response.token)
+        console.log({response})
+        localStorage.setItem('user', JSON.stringify(response.data.user))
+        this.tokenService.saveToken(response.data.token)
       },
       error: (error) => {
         const errorMessage = error.error.error;
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit {
         this.errorLogin = true;
         this.toastMessageService.presentToast(
           'bottom',
-          errorMessage,
+          error.error.errorCode,
           'danger',
         )
       }

@@ -21,9 +21,9 @@ export class AuthService {
     this.AuthenticatedUser$ = this.AuthenticatedUser.asObservable()
   }
 
-  login(credentials: {mail:string, password:string}):Observable<{token:string,user:IUser}> {
+  login(credentials: {email:string, password:string}):Observable<{succesCode:number,message:string,data:any}> {
     return this.http
-      .post<{token:string, user:IUser}>(`${this.apiUrl}/auth/authenticate`, credentials );
+      .post<{succesCode:number,message:string,data:any}>(`${this.apiUrl}/auth/authenticate`, credentials );
   }
 
   signup(signupCredentials:ISignupCredentials){
